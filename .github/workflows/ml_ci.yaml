@@ -7,8 +7,10 @@ on:
 jobs:
   build-train-deploy:
     runs-on: ubuntu-latest
-    
-    # CI UTAMA: Memaksa GitHub Actions menggunakan login shell 
+
+  permissions:
+    contents: write
+
     defaults:
       run:
         shell: bash -el {0}
@@ -17,7 +19,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # MENGINSTAL CONDA DI GITHUB ACTIONS (WAJIB)
     - name: Set up Miniconda
       uses: conda-incubator/setup-miniconda@v3
       with:
@@ -29,7 +30,7 @@ jobs:
       run: |
         pip install mlflow pandas
 
-    # JALANKAN MLFLOW (Memaksa pakai folder baru "mlruns_fresh")
+    # JALANKAN MLFLOW 
     - name: Run MLflow Project (Training Model via Conda)
       run: |
         export MLFLOW_TRACKING_URI="file://$(pwd)/mlruns_fresh"
@@ -53,8 +54,8 @@ jobs:
         # Push ke Docker Hub
         docker push "${{ secrets.DOCKERHUB_USERNAME }}/heart-disease-model:latest"
         
-    - name: Save Artifacts to GitHub
-      uses: actions/upload-artifact@v4
+  - name: Commit and push MLflow artifacts
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        name: mlflow-artifacts
-        path: mlruns_fresh/
+        commit_message: "Auto-save MLflow artifacts to repo [skip ci]"
+        file_pattern: 'mlruns_fresh/**'
