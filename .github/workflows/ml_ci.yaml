@@ -55,7 +55,7 @@ jobs:
         docker push "${{ secrets.DOCKERHUB_USERNAME }}/heart-disease-model:latest"
         
     - name: Commit and push MLflow artifacts
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Auto-save MLflow artifacts to repo [skip ci]"
-          file_pattern: 'mlruns_fresh/**'
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Auto-save MLflow artifacts to repo [skip ci]"
+        file_pattern: 'mlruns_fresh/**'
