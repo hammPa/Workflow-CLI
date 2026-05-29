@@ -8,8 +8,8 @@ jobs:
   build-train-deploy:
     runs-on: ubuntu-latest
 
-  permissions:
-    contents: write
+    permissions:
+      contents: write
 
     defaults:
       run:
@@ -54,8 +54,8 @@ jobs:
         # Push ke Docker Hub
         docker push "${{ secrets.DOCKERHUB_USERNAME }}/heart-disease-model:latest"
         
-  - name: Commit and push MLflow artifacts
-      uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-        commit_message: "Auto-save MLflow artifacts to repo [skip ci]"
-        file_pattern: 'mlruns_fresh/**'
+    - name: Commit and push MLflow artifacts
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-save MLflow artifacts to repo [skip ci]"
+          file_pattern: 'mlruns_fresh/**'
