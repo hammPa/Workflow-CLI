@@ -1,0 +1,8 @@
+artifact_location: file:///home/runner/work/Workflow-CLI/Workflow-CLI/mlruns_fresh/0
+creation_time: 1780098892428
+experiment_id: '0'
+last_update_time: 1780098892428
+lifecycle_stage: active
+name: Default
+trace_location: null
+workspace: default

@@ -1,0 +1,8 @@
+artifact_location: file:///home/runner/work/Workflow-CLI/Workflow-CLI/mlruns_fresh/832068237412160367
+creation_time: 1780098892435
+experiment_id: '832068237412160367'
+last_update_time: 1780098892435
+lifecycle_stage: active
+name: Heart_Disease_Classification_Basic
+trace_location: null
+workspace: default

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/runner/work/Workflow-CLI/Workflow-CLI/mlruns_fresh/832068237412160367/95e01545fb3e4c31969ba870b06b0cdf/artifacts
+end_time: 1780098943474
+entry_point_name: ''
+experiment_id: '832068237412160367'
+lifecycle_stage: active
+run_id: 95e01545fb3e4c31969ba870b06b0cdf
+run_name: RandomForest_Basic_Autolog
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780098892471
+status: 3
+tags: []
+user_id: runner
